@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Book</title>
+    <link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="RecipeBook">
+
+    <div ng-controller="authCtrl">
+        <div ui-view></div>
+    </div>
+
+	
+    <!-- Libraries -->
+    <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/bower_components/angular/angular.js"></script>
+    <script src="lib/bower_components/firebase/firebase.js"></script>
+    <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="lib/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    
+    <!-- Local files -->
+    <script src="app/app.js"></script>
+
+    <!-- controllers -->
+    <script src="app/controllers/authCtrl.js"></script>
+    <script src="app/controllers/loginCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+</body>
+</html>
