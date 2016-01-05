@@ -17,5 +17,5 @@ app.config(function($routeProvider) {
     		controller: "mainCtrl",
     		css: '/styles/main.css'
     	})
-			.otherwise('mainPage')
+			.otherwise('auth')
 });

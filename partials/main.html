@@ -10,9 +10,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form class="navbar-form" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Add recepie" ng-model="searchAllRecipes">
+          <input type="text" class="form-control" placeholder="Search Recipe" ng-model="searchAllRecipes">
         </div>
-        <button type="submit" class="btn btn-default" ng-click="submitSearch()">Submit</button>
       
         <!-- Button trigger modal -->
         
@@ -41,11 +40,11 @@
               </div>
               <div class="modal-body">
                 <input type="text" class="form-control" placeholder="recipe origin" ng-model="contact">
-                <input type="text" class="form-control" placeholder="Add From Website" ng-model="url">
-                <input ngshow="!url" ng-hide="url" type='file' ng-model='yourModel' base-sixty-four-input>
+                <input ng-hide="yourModel" type="text" class="form-control" placeholder="Add From Website" ng-model="url">
+                <input ng-hide="url" type='file' ng-model='yourModel' base-sixty-four-input>
                
-                <input ng-show="file" type="text" class="form-control" placeholder="Recipe Name" ng-model="recipeName">
-                <button ng-show='file' ng-click="doStuff()">Submit</button>
+                <input ng-show="yourModel" type="text" class="form-control" placeholder="Recipe Name" ng-model="recipeName">
+                <button ng-show='recipeName' ng-click="doStuff()">Submit</button>
                 
                 <!-- <input ng-show="" type="text" class="form-control" placeholder="Ingredients" ng-model="ingredients">
                 <input ng-show="" type="text" class="form-control" placeholder="Preparation" ng-model="preparation"> -->
@@ -66,7 +65,7 @@
 
 <div class=".container-fluid imageContainer">
   <div class="row">
-    <div class="col-md-4" ng-repeat="recipe in allrecipes">
+    <div class="col-md-4" ng-repeat="recipe in allrecipes | filter: searchAllRecipes">
       <img id="base64" ng-show="recipe.image" ng-src="data:image/png;base64,{{recipe.image}} "/>
       <img id="webimage" ng-show="recipe.images[0].url" ng-src="{{recipe.images[0].url}}"/>
       <h3>{{recipe.title}}</h3>

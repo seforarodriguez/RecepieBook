@@ -60,21 +60,8 @@ app.controller("mainCtrl",
 		})
 	};
 
+  
 
-	// search in nav bar
-	$scope.submitSearch = function() {
-		console.log("you clicked submit search");
-
-		$scope.filtered = _.filter(recipeRef, function(obj) {
-			if (_.includes(obj.title.toLowerCase(), $scope.searchAllRecipes.toLowerCase())) {
-				console.log("obj includes", obj.title);
-				return obj;
-			}
-		});
-		$location.path('/main-page/main-page-search');
-		console.log("FilteredArray", $scope.filtered);
-
-	}; //-- end submitSearch()
 
 });
 
