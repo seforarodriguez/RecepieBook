@@ -1,19 +1,19 @@
 app.controller("loginCtrl",
-  function($scope, $state, $firebaseAuth, $firebaseArray) {
-    
-  $scope.gmailAuth = function (param) { 
-        var ref = new Firebase("https://recepiebook.firebaseio.com/users");
-          $scope.$parent.ref.$authWithOAuthPopup("google", function(error, auth) {
-            if (error) {
-              console.log("Login Failed!", error);
-            } else {
-              console.log("Authenticated successfully with payload:", auth);
-                authData = auth;
-                console.log(authData);
-                $state.go('main-page');
-              }
-          });
-      };
+  function($scope, $firebaseAuth, $firebaseArray, $location, AuthFactory) {
+
+  var ref = new Firebase("https://recepiebook.firebaseio.com/users");
+  var fireArray = $firebaseArray(ref);
+  $scope.ref = $firebaseAuth(ref);
+
+  $scope.gmailAuth = function () { 
+      $scope.ref.$authWithOAuthPopup("google").then(function(authData) {
+        console.log("Logged in as:", authData);
+        AuthFactory.setUid(authData.uid);
+        $location.url('main-page')
+      }).catch(function(error) {
+        console.error("Authentication failed:", error);
+      }); 
+  };
 });
 
 

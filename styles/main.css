@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'gothamFont';
+	src: url('fonts/Gotham_21023.ttf')
+}
+
+*{
+	font-family: gothamFont, Helvetica;
+}
+
+.glyphicon {
+	border-radius: 25px;
+	border: 2px solid;
+	border-color: red;
+	padding: 5px;
+	color: red;
+	background-color: transparent;
+}
+
+nav {
+	background-image: url("https://dl.dropbox.com/s/a0mnq7b5emhjtn8/backgrounds-02.png?dl=0");
+	background-size: 100%;
+	padding: 30px;
+}
+
+#logo {
+	width: 200px;
+	height: 100px;
+	margin-top: -40px;
+}
+
+body {
+	background-color: none;
+}
+
+.imageContainer{
+	margin: 5%;
+}
+
+#base64 {
+	width: 100%;
+	height: auto;
+}
+
+#webimage {
+	width: 100%;
+	height: auto;
+}

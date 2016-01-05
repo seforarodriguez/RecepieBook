@@ -3,7 +3,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       
-      <a class="navbar-brand" href="#"> <img id="logo" src="https://dl.dropbox.com/s/qvwjcpkae1xye8t/ecook%20logo%20red-01.png?dl=0"></a>
+      <a class="navbar-brand" href="#">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,18 +37,18 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add A New Recipe</h4>
+                <h4 class="modal-title" id="myModalLabel">New Recipe</h4>
               </div>
               <div class="modal-body">
                 <input type="text" class="form-control" placeholder="recipe origin" ng-model="contact">
+                <input type="text" class="form-control" placeholder="Recipe Name" ng-model="recipeName">
+                <input type="text" class="form-control" placeholder="Ingredients" ng-model="ingredients">
+                <input type="text" class="form-control" placeholder="Preparation" ng-model="preparation">
                 <input type="text" class="form-control" placeholder="Add From Website" ng-model="url">
-                <input ngshow="!url" ng-hide="url" type='file' ng-model='yourModel' base-sixty-four-input>
-               
-                <input ng-show="file" type="text" class="form-control" placeholder="Recipe Name" ng-model="recipeName">
-                <button ng-show='file' ng-click="doStuff()">Submit</button>
-                
-                <!-- <input ng-show="" type="text" class="form-control" placeholder="Ingredients" ng-model="ingredients">
-                <input ng-show="" type="text" class="form-control" placeholder="Preparation" ng-model="preparation"> -->
+              <form>
+                <input type='file' ng-model='yourModel' base-sixty-four-input>
+                <button ng-click="doStuff()">Submit</button>
+              </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -64,14 +64,10 @@
   </div>  <!-- /.container-fluid -->
 </nav>
 
-<div class=".container-fluid imageContainer">
-  <div class="row">
-    <div class="col-md-4" ng-repeat="recipe in allrecipes">
-      <img id="base64" ng-show="recipe.image" ng-src="data:image/png;base64,{{recipe.image}} "/>
-      <img id="webimage" ng-show="recipe.images[0].url" ng-src="{{recipe.images[0].url}}"/>
-      <h3>{{recipe.title}}</h3>
-    </div>
-  </div>
+<div ng-repeat="recipe in filtered">
+  <img ng-src="data:image/png;base64,{{recipe.images}} "/>
+  <img ng-src="{{recipe.images[0].url}}"/ >
+  <h1>{{recipe.title}}</h1>
 </div>
 
 

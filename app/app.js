@@ -1,16 +1,21 @@
-var app = angular.module("RecipeBook", ["ui.router", "firebase"])
-app.config(function($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("/main-page");
+var app = angular.module("RecipeBook", ["ngRoute", "firebase", "naif.base64", "door3.css"])
+app.config(function($routeProvider) {
 
-		$stateProvider
-			.state('#/auth', {
-			url: '/auth',
-			templateUrl:"partials/auth.html",
-			controller:'loginCtrl'
+		$routeProvider
+			.when('/auth', {
+				templateUrl:"partials/auth.html",
+				controller:'loginCtrl',
+				css: '/styles/auth.css'
 			})
-			.state('main-page', {
-      url: "/main-page",
-      templateUrl: "partials/main.html",
-      controller: "mainCtrl"
-    })
+			.when('/mainPage', {
+      	templateUrl: "partials/main.html",
+      	controller: "mainCtrl",
+      	css: '/styles/main.css'
+    	})
+    	.when('/filteredSearch', {
+    		templateUrl: "partials/searched.html",
+    		controller: "mainCtrl",
+    		css: '/styles/main.css'
+    	})
+			.otherwise('mainPage')
 });
